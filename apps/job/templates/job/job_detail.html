@@ -1,0 +1,24 @@
+{% extends 'core/base.html' %}
+
+{% block content %}
+    <h1 class="title">{{ job.title }} </h1>
+
+    <!-- <p class="is-size-4"><b>Company :</b>{{ job.customer }}</p> -->
+
+    <!-- <p><b>Location :</b> {{ job.location }}</p> -->
+
+    <b>Company name: </b>{{ job.customer}}<br>
+    {% if job.location %}<b>Company Location: </b>{{ job.location}}<br>{% endif %}
+    {% if job.vacancies %}<b>No of Vacancies: </b>{{ job.vacancies}}<br>{% endif %}
+    {% if job.min_exp %}<b>Minimum Experience: </b>{{ job.min_exp}}{% endif %} {% if job.min_exp %}<b>Minimum Experience: </b>{{ job.min_exp}}<br>{% endif %}
+    <!-- {% if job.description %}<b>Description: </b>{{ job.description}}<br>{% endif %} -->
+    <!-- <b>Company size: </b>{{ job.get_company_size_display }}<br> -->
+
+    <hr>
+
+    <!-- {% if job.status == 'active' %}
+        <a href="{% url 'apply_for_job' job.id %}" class="button is-success">Apply for job</a>
+    {% else %}
+        <p>This job is not available anymore!</p>
+    {% endif %} -->
+{% endblock %}
