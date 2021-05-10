@@ -4,7 +4,7 @@ from django.contrib.auth import login
 from django.core.paginator import Paginator, EmptyPage
 
 from apps.job.models import Job
-from apps.userprofile.models import Userprofile
+# from apps.userprofile.models import Userprofile
 
 import requests
 import json
@@ -18,14 +18,16 @@ def frontpage(request):
         page = p.page(page_no)
     except EmptyPage:
         page = p.page(1)
-    # task_url = "https://v13.teamproit.com/api/resource/Task?fields=[%22name%22,%22subject%22,%22status%22,%22category%22,%22gulf_experience%22,%22working_days%22,%22transportation%22,%22accommodation%22,%22contract_period__month%22,%22vac%22,%22qualification_type%22,%22service%22,%22territory%22,%22description%22,%22customer%22,%22project%22,%22currency%22,%22amount%22,%22amount%22,%22job_category%22,%22creation%22,%22minimum_experience%22,%22maximum_experience%22,%22qualification%22,%22specialization%22,%22salary_type%22,%22from%22,%22to%22,%22contract_period_year%22,%22joining_ticket%22,%22food%22,%22leave%22,%22visa_type%22,%22nationality%22,%22over_time%22,%22any_other_allowance%22]&&filters=[[%22status%22,%22!=%22,%22Completed%22],[%22status%22,%22!=%22,%22Cancelled%22],[%22status%22,%22!=%22,%22Hold%22],[%22service%22,%22in%22,[%22REC-D%22,%22REC-I%22]]]&&limit_page_length=5000"
-    # response = requests.request("GET", task_url)
+    # jobs_url = "https://myjobpro.teamproit.com/api/resource/Position?fields=[%22name%22,%22subject%22,%22status%22,%22country%22,%22min_exp%22,%22max_exp%22,%22salary_currency%22,%22salary_range%22,%22qualification%22]&&filters=[[%22status%22,%22=%22,%22Active%22],[%22web%22,%22=%22,%220%22]]&&limit_page_length=5000"
+    # response = requests.request("GET", jobs_url)
     # byte_str = response.content
     # dict_str = byte_str.decode("UTF-8")
     # job_response = json.loads(dict_str)
     # for j in job_response["data"]:
-    #     a = Job(title =j["subject"],task_id = j["name"],territory = j["territory"], customer = j["customer"], status = j["status"], vacancies = j["vac"], qualification_type = j["qualification_type"], specialization = j["specialization"], category = j["category"], min_exp = j["minimum_experience"], max_exp = j["maximum_experience"], gulf_exp = j["gulf_experience"], salary_type = j["salary_type"], from_amount = j["from"], to_amount = j["to"], amount = j["amount"], description = j["description"], working_hours = j["working_days"], transportation = j["transportation"], contract_period_yr = j["contract_period_year"],contract_period_mn = j["contract_period__month"], joining_ticket = j["joining_ticket"], food = j["food"], accommodation = j["accommodation"], leave = j["leave"], visa_type = j["visa_type"], nationality = j["nationality"], overtime = j["over_time"], any_other_allowance = j["any_other_allowance"],created_by = request.user)
+    #     a = Job(title =j["subject"],task_id = j["name"],territory = j["country"], status = j["status"], min_exp = j["min_exp"], max_exp = j["max_exp"],created_by = request.user)
     #     a.save()
+        # job_created = "https://myjobpro.teamproit.com/api/resource/Position/%s"%j["name"]
+        # response = requests.request("PUT", job_created,body = {"web":1})
     return render(request, 'core/frontpage.html',{'jobs': page})
 
 def signup(request):
@@ -38,12 +40,12 @@ def signup(request):
             account_type = request.POST.get('account_type', 'jobseeker')
             username = request.POST.get('username')
 
-            if account_type == 'employer':
-                userprofile = Userprofile.objects.create(user=user,username=username,is_employer=True)
-                user.userprofile.save()
-            else:
-                userprofile = Userprofile.objects.create(user=user,username=username)
-                user.userprofile.save()
+            # if account_type == 'employer':
+            #     userprofile = Userprofile.objects.create(user=user,username=username,is_employer=True)
+            #     user.userprofile.save()
+            # else:
+            #     userprofile = Userprofile.objects.create(user=user,username=username)
+            #     user.userprofile.save()
 
             login(request,user)
 

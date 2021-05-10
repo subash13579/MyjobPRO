@@ -19,7 +19,7 @@
   <!-- meta character set -->
   <meta charset="UTF-8">
   <!-- Site Title -->
-  <title>Job Listing</title>
+  <title>MyjobPRO</title>
 
   <link href="https://fonts.googleapis.com/css?family=Poppins:100,200,400,300,500,600,700" rel="stylesheet">
   <!--
@@ -215,16 +215,17 @@
               </a>
               <h6>Chennai</h6>
               <p>
-                <ul><li>
+              <ul>
+                <li>
                   UAE based Company
                 </li>
                 <li>
                   Java, J2EE
-CI/CD (GIT, Jenkin, Maven)
-Spring MVC
-Spring Rest
-Angular 9, Type Script
-Boot Strap
+                  CI/CD (GIT, Jenkin, Maven)
+                  Spring MVC
+                  Spring Rest
+                  Angular 9, Type Script
+                  Boot Strap
                 </li>
               </ul>
               </p>
@@ -241,14 +242,14 @@ Boot Strap
               </a>
               <h6>Kuwait</h6>
               <p>
-                <ul>
-                  <li>
-                    Diploma in Mechanical Engineering
-                  </li>
-                  <li>
-                    Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
-                  </li>
-                </ul>
+              <ul>
+                <li>
+                  Diploma in Mechanical Engineering
+                </li>
+                <li>
+                  Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
+                </li>
+              </ul>
               </p>
             </div>
           </div>
@@ -263,11 +264,12 @@ Boot Strap
               </a>
               <h6>Oman</h6>
               <p>
-               <ul>
-                 <li>
-                  Have worked on Steel Storage Tank in Oil&Gas and Water projects. Expose to welding and familiar with CQP, QCP, WPS & ASME Sec.
-                 </li>
-               </ul>
+              <ul>
+                <li>
+                  Have worked on Steel Storage Tank in Oil&Gas and Water projects. Expose to welding and familiar with
+                  CQP, QCP, WPS & ASME Sec.
+                </li>
+              </ul>
               </p>
             </div>
           </div>
@@ -282,14 +284,14 @@ Boot Strap
               </a>
               <h6>Kuwait</h6>
               <p>
-                <ul>
-                  <li>
-                    Diploma in Mechanical Engineering
-                  </li>
-                  <li>
-                    Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
-                  </li>
-                </ul>
+              <ul>
+                <li>
+                  Diploma in Mechanical Engineering
+                </li>
+                <li>
+                  Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
+                </li>
+              </ul>
               </p>
             </div>
           </div>
@@ -319,14 +321,14 @@ Boot Strap
               </a>
               <h6>Kuwait</h6>
               <p>
-                <ul>
-                  <li>
-                    Diploma in Mechanical Engineering
-                  </li>
-                  <li>
-                    Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
-                  </li>
-                </ul>
+              <ul>
+                <li>
+                  Diploma in Mechanical Engineering
+                </li>
+                <li>
+                  Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
+                </li>
+              </ul>
               </p>
             </div>
           </div>
@@ -417,7 +419,7 @@ Boot Strap
           <div class="single-post d-flex flex-row">
             <div class="thumb">
               <img src="{% static 'img/post.png' %}" alt="">
-              <ul class="tags">
+              <!-- <ul class="tags">
                 <li>
                   <a href="#">Art</a>
                 </li>
@@ -427,29 +429,30 @@ Boot Strap
                 <li>
                   <a href="#">Design</a>
                 </li>
-              </ul>
+              </ul> -->
             </div>
+            &emsp;
             <div class="details">
-              <div class="title d-flex flex-row justify-content-between">
-                <div class="titles">
-                  <a href="single.html">
+              <div class="title">
+                <div class="titles ">
+                  <a href="">
                     <h4>{{job.title}}</h4>
                   </a>
-                  <h6>Premium Labels Limited</h6>
+                  <h6>{{job.customer}}</h6>
+                  <p>
+                    Location : {{job.country}}<br>
+                    vacancies : {{job.vacancies}} <br>
+                  </p>
+                  <p>Job Nature: Full time</p>
+                  <!-- <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p> -->
+                  <p class="address"><span class="lnr lnr-database"></span> 25k - 35k</p>
                 </div>
-                <ul class="btns">
-                  <li><a href="#"><span class="lnr lnr-heart"></span></a></li>
-                  <li><a href="#">Apply</a></li>
-                </ul>
               </div>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod temporinc ididunt ut dolore
-                magna aliqua.
-              </p>
-              <h5>Job Nature: Full time</h5>
-              <!-- <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p> -->
-              <p class="address"><span class="lnr lnr-database"></span> 25k - 35k</p>
             </div>
+            <ul class="ml-auto btns">
+              <!-- <li><a href="#"><span class="lnr lnr-heart"></span></a></li> -->
+              <li><a href="{% url 'job_detail' job.id %}">Apply</a></li>
+            </ul>
           </div>
           {% endfor %}
           <div class="container mt-2 d-flex ">
@@ -508,14 +511,15 @@ Boot Strap
                 </a>
                 <h6>Kuwait</h6>
                 <p>
-                  <ul>
-                    <li>
-                      Diploma in Mechanical Engineering
-                    </li>
-                    <li>
-                      Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36, Delmag…..)
-                    </li>
-                  </ul>
+                <ul>
+                  <li>
+                    Diploma in Mechanical Engineering
+                  </li>
+                  <li>
+                    Minimum 20 years’ experience in piling rig machines maintenance as (BG20, BG36, BG40, LB36,
+                    Delmag…..)
+                  </li>
+                </ul>
                 </p>
                 <h5>Job Nature: Full time</h5>
                 <!-- <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p> -->
@@ -529,7 +533,7 @@ Boot Strap
                 </a>
                 <h6>Bahrain</h6>
                 <p>
-                As per attachment, Food, only duty meal provided, 9 hrs duty (Including one hour break)
+                  As per attachment, Food, only duty meal provided, 9 hrs duty (Including one hour break)
                 </p>
                 <h5>Job Nature: Full time</h5>
                 <p class="address"><span class="lnr lnr-map"></span> 56/8, Panthapath Dhanmondi Dhaka</p>
@@ -543,7 +547,8 @@ Boot Strap
                 </a>
                 <h6>Oman</h6>
                 <p>
-                  Have worked on Steel Storage Tank in Oil&Gas and Water projects. Expose to welding and familiar with CQP, QCP, WPS & ASME Sec.
+                  Have worked on Steel Storage Tank in Oil&Gas and Water projects. Expose to welding and familiar with
+                  CQP, QCP, WPS & ASME Sec.
 
                 </p>
                 <h5>Job Nature: Full time</h5>
@@ -674,7 +679,8 @@ Boot Strap
           <h1>Download <br>
             MyjobPRO App Today!</h1>
           <p class="subs">
-            This is exclusive job app where you can search for job vacancies related to your qualification / experience. You can post your CV's for future vacancies. View & apply 1000+ job vacancies of TeamPRO.
+            This is exclusive job app where you can search for job vacancies related to your qualification / experience.
+            You can post your CV's for future vacancies. View & apply 1000+ job vacancies of TeamPRO.
           </p>
           <div class="d-flex flex-row">
             <div class="buttons">
@@ -706,7 +712,7 @@ Boot Strap
   </section>
   <!-- End download Area -->
 
-  
+
   <script src="{% static 'js/vendor/jquery-2.2.4.min.js' %}"></script>
   <script src="{% static 'https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js' %}"
     integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
